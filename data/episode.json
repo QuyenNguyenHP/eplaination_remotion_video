@@ -1,0 +1,118 @@
+{
+  "topic": "Khởi động mềm",
+  "audience": "Người mới bắt đầu tìm hiểu tự động hóa công nghiệp",
+  "language": "Tiếng Việt",
+  "style": "minh họa công nghiệp 3D hiện đại, xanh navy và cyan",
+  "promptTemplate": "Giải thích một khái niệm kỹ thuật qua tám scene ngắn, ngôn ngữ đơn giản, có ví dụ cụ thể và câu kết dễ nhớ.",
+  "scenes": [
+    {
+      "id": "hook",
+      "label": "Hook",
+      "title": "Bảo vệ động cơ",
+      "narration": "Bạn đã bao giờ thấy máy móc rung lắc mạnh khi vừa bật lên chưa? Cú sốc điện đột ngột đó chính là nguyên nhân làm giảm tuổi thọ của thiết bị.",
+      "visualDescription": "Động cơ lớn đang rung mạnh khi khởi động với các tia lửa điện tóe ra xung quanh.",
+      "imagePrompt": "Square 1:1 pencil sketch of Động cơ lớn đang rung mạnh khi khởi động với các tia lửa điện tóe ra xung quanh.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
+      "image": "images/uploads/hook.jpg",
+      "audio": "audio/scenes/hook.mp3",
+      "audioDuration": 7.104
+    },
+    {
+      "id": "definition",
+      "label": "Định nghĩa",
+      "title": "Hiểu đúng bản chất",
+      "narration": "Khởi động mềm là thiết bị điện tử thông minh, giúp điều khiển điện áp tăng dần đều để motor khởi động êm ái thay vì giật cục.",
+      "visualDescription": "Sơ đồ khối của thiết bị điện tử với dòng điện đi qua được làm mượt mà hơn.",
+      "imagePrompt": "Square 1:1 pencil sketch of Sơ đồ khối của thiết bị điện tử với dòng điện đi qua được làm mượt mà hơn.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
+      "image": "images/uploads/definition.jpg",
+      "audio": "audio/scenes/definition.mp3",
+      "audioDuration": 6.264
+    },
+    {
+      "id": "purpose",
+      "label": "Mục đích",
+      "title": "Hạn chế sự cố",
+      "narration": "Mục đích cốt lõi của công nghệ này là triệt tiêu dòng điện khởi động quá lớn, từ đó bảo vệ lưới điện và các cơ cấu truyền động.",
+      "visualDescription": "Biểu đồ so sánh dòng điện giảm đột ngột từ dạng nhọn sang dạng thoải.",
+      "imagePrompt": "Square 1:1 pencil sketch of Biểu đồ so sánh dòng điện giảm đột ngột từ dạng nhọn sang dạng thoải.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
+      "image": "images/uploads/purpose.jpg",
+      "audio": "audio/scenes/purpose.mp3",
+      "audioDuration": 6.36
+    },
+    {
+      "id": "mechanism",
+      "label": "Cách hoạt động",
+      "title": "Nguyên lý tinh tế",
+      "narration": "Thiết bị dùng các van bán dẫn thyristor để cắt pha điện áp, cho phép dòng điện nạp vào cuộn dây tăng từ từ theo thời gian cài đặt.",
+      "visualDescription": "Mô phỏng các van bán dẫn đang đóng mở nhịp nhàng để điều chỉnh dòng điện.",
+      "imagePrompt": "Square 1:1 pencil sketch of Mô phỏng các van bán dẫn đang đóng mở nhịp nhàng để điều chỉnh dòng điện.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
+      "image": "images/uploads/mechanism.jpg",
+      "audio": "audio/scenes/mechanism.mp3",
+      "audioDuration": 6.672000000000001
+    },
+    {
+      "id": "example",
+      "label": "Ví dụ",
+      "title": "Bơm nước mạnh mẽ",
+      "narration": "Lấy ví dụ với trạm bơm công suất lớn, dòng điện vọt lên gấp sáu lần nếu trực tiếp cấp nguồn, nhưng sẽ giảm ba lần khi dùng thiết bị này.",
+      "visualDescription": "Hệ thống ống nước công nghiệp lớn đang hoạt động ổn định không bị rung lắc.",
+      "imagePrompt": "Square 1:1 pencil sketch of Hệ thống ống nước công nghiệp lớn đang hoạt động ổn định không bị rung lắc.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
+      "image": "images/uploads/example.jpg",
+      "audio": "audio/scenes/example.mp3",
+      "audioDuration": 7.128
+    },
+    {
+      "id": "real-use",
+      "label": "Ứng dụng",
+      "title": "Lĩnh vực áp dụng",
+      "narration": "Nhờ ưu điểm vận hành êm, hệ thống này hiện diện khắp nơi từ băng tải khai thác mỏ, quạt thông gió hầm lò đến các hệ thống thang máy.",
+      "visualDescription": "Băng chuyền tải than trong nhà máy đang chuyển động mượt mà.",
+      "imagePrompt": "Square 1:1 pencil sketch of Băng chuyền tải than trong nhà máy đang chuyển động mượt mà.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
+      "image": "images/uploads/real-use.jpg",
+      "audio": "audio/scenes/real-use.mp3",
+      "audioDuration": 6.720000000000001
+    },
+    {
+      "id": "variants",
+      "label": "Biến thể",
+      "title": "Phân loại phổ biến",
+      "narration": "Tùy nhu cầu sử dụng, kỹ sư sẽ chọn dòng cơ bản chỉ chỉnh điện áp hoặc loại tích hợp sẵn tính năng điều khiển thông minh qua màn hình.",
+      "visualDescription": "Kỹ thuật viên đang lắp ráp hai loại tủ điện có kích thước khác nhau.",
+      "imagePrompt": "Square 1:1 pencil sketch of Kỹ thuật viên đang lắp ráp hai loại tủ điện có kích thước khác nhau.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
+      "image": "images/uploads/variants.jpg",
+      "audio": "audio/scenes/variants.mp3",
+      "audioDuration": 6.6240000000000006
+    },
+    {
+      "id": "payoff",
+      "label": "Câu kết",
+      "title": "Đầu tư bền vững",
+      "narration": "Đầu tư giải pháp này chính là bí quyết giúp doanh nghiệp tiết kiệm chi phí sửa chữa dài lâu.",
+      "visualDescription": "Biểu tượng bánh răng hoàn hảo quay mượt mà trên nền xanh dương.",
+      "imagePrompt": "Square 1:1 pencil sketch of Biểu tượng bánh răng hoàn hảo quay mượt mà trên nền xanh dương.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
+      "image": "images/uploads/payoff.jpg",
+      "audio": "audio/scenes/payoff.mp3",
+      "audioDuration": 4.416
+    }
+  ],
+  "audioSettings": {
+    "musicWithVoice": 0.15,
+    "voice": 1
+  },
+  "backgroundMusic": "audio/Tech_music_background1.mp3",
+  "voiceCode": "n_haiphong_male_quyen12334_zero_shot_education_vc",
+  "speedRate": 1,
+  "visualSettings": {
+    "logo": "logo/logo.png"
+  },
+  "contentStats": {
+    "totalWords": 229,
+    "estimatedDuration": 60.5
+  },
+  "socialCaption": "Bạn đã bao giờ tự hỏi vì sao máy móc công suất lớn không bị giật đùng đùng khi khởi động chưa? Bí mật nằm ở một thiết bị cực kỳ thông minh này. Xem ngay để hiểu rõ nguyên lý hoạt động và lưu lại video nếu thấy kiến…\n\n#DQTECH #KhoiDongMem #DienCongNghiep #KyThuatDien #HocDienTu",
+  "thumbnail": {
+    "title": "Khởi động mềm là gì?",
+    "episodeNumber": 4,
+    "character": "questioning6.png",
+    "image": "images/thumbnail/thumbnail.png"
+  }
+}

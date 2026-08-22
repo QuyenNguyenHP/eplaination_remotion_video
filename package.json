@@ -1,0 +1,28 @@
+{
+  "name": "concept-explainer-video",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "remotion studio src/index.ts",
+    "app": "node app/server.mjs",
+    "studio": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts EXPLAINER-VIDEO output/explainer.mp4",
+    "render:frame": "remotion still src/index.ts EXPLAINER-VIDEO output/preview.png --frame=420",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.506",
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0",
+    "mediabunny": "^1.34.0",
+    "multer": "^2.2.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "remotion": "4.0.506"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "typescript": "^5.9.2"
+  }
+}

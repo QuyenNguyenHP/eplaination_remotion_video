@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Đăng nhập · DQ TECH</title>
+    <link rel="stylesheet" href="/explainer/login.css" />
+  </head>
+  <body>
+    <main class="login-card">
+      <img src="/explainer/login-logo.png" alt="DQ TECH" /><span>VIDEO CREATOR</span>
+      <h1>Chào mừng trở lại</h1>
+      <p>Đăng nhập để tạo video so sánh tự động.</p>
+      <form id="login-form">
+        <label
+          >Tên đăng nhập<input
+            name="username"
+            autocomplete="username"
+            value="admin"
+            required /></label
+        ><label
+          >Mật khẩu<input
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            autofocus
+            required
+        /></label>
+        <div id="error" role="alert"></div>
+        <button type="submit">Đăng nhập</button>
+      </form>
+    </main>
+    <script>
+      document
+        .querySelector("#login-form")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+          const button = e.currentTarget.querySelector("button");
+          const error = document.querySelector("#error");
+          button.disabled = true;
+          error.textContent = "";
+          try {
+            const body = Object.fromEntries(new FormData(e.currentTarget));
+            const response = await fetch("/explainer/api/login", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(body),
+            });
+            const result = await response.json();
+            if (!response.ok) throw new Error(result.error);
+            location.href = "/explainer/";
+          } catch (err) {
+            error.textContent = err.message;
+          } finally {
+            button.disabled = false;
+          }
+        });
+    </script>
+  </body>
+</html>

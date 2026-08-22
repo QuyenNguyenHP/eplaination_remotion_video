@@ -1,0 +1,5 @@
+node_modules/
+output/
+.env
+public/audio/scenes/
+public/images/uploads/
