@@ -1,5 +1,5 @@
 {
-  "topic": "Khởi động mềm",
+  "topic": "UART",
   "audience": "Người mới bắt đầu tìm hiểu tự động hóa công nghiệp",
   "language": "Tiếng Việt",
   "style": "minh họa công nghiệp 3D hiện đại, xanh navy và cyan",
@@ -8,90 +8,90 @@
     {
       "id": "hook",
       "label": "Hook",
-      "title": "Bảo vệ động cơ",
-      "narration": "Bạn đã bao giờ thấy máy móc rung lắc mạnh khi vừa bật lên chưa? Cú sốc điện đột ngột đó chính là nguyên nhân làm giảm tuổi thọ của thiết bị.",
-      "visualDescription": "Động cơ lớn đang rung mạnh khi khởi động với các tia lửa điện tóe ra xung quanh.",
-      "imagePrompt": "Square 1:1 pencil sketch of Động cơ lớn đang rung mạnh khi khởi động với các tia lửa điện tóe ra xung quanh.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
+      "title": "Giao tiếp phần cứng",
+      "narration": "Bạn có bao giờ thắc mắc các linh kiện điện tử trò chuyện với nhau bằng cách nào không? Bí mật nằm ở một giao thức truyền dữ liệu kinh điển được sử dụng rộng rãi.",
+      "visualDescription": "Hai vi điều khiển đặt đối diện nhau trên mạch điện, có các tia sáng phát ra từ chân cắm tượng trưng cho tín hiệu điện đang truyền đi.",
+      "imagePrompt": "Square 1:1 pencil sketch of Hai vi điều khiển đặt đối diện nhau trên mạch điện, có các tia sáng phát ra từ chân cắm tượng trưng cho tín hiệu điện đang truyền đi.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
       "image": "images/uploads/hook.jpg",
       "audio": "audio/scenes/hook.mp3",
-      "audioDuration": 7.104
+      "audioDuration": 7.32
     },
     {
       "id": "definition",
       "label": "Định nghĩa",
-      "title": "Hiểu đúng bản chất",
-      "narration": "Khởi động mềm là thiết bị điện tử thông minh, giúp điều khiển điện áp tăng dần đều để motor khởi động êm ái thay vì giật cục.",
-      "visualDescription": "Sơ đồ khối của thiết bị điện tử với dòng điện đi qua được làm mượt mà hơn.",
-      "imagePrompt": "Square 1:1 pencil sketch of Sơ đồ khối của thiết bị điện tử với dòng điện đi qua được làm mượt mà hơn.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
+      "title": "Truyền dữ liệu nối",
+      "narration": "Đây là phương thức truyền thông tin không cần xung nhịp đồng hồ chung. Dữ liệu được gửi đi lần lượt từng bit qua một đường dây riêng biệt từ bên gửi sang bên nhận.",
+      "visualDescription": "Cận cảnh một đường mạch đồng trên bo mạch, các chấm vuông nhỏ nối tiếp nhau dịch chuyển tuyến tính qua lại giữa hai đầu mút.",
+      "imagePrompt": "Square 1:1 pencil sketch of Cận cảnh một đường mạch đồng trên bo mạch, các chấm vuông nhỏ nối tiếp nhau dịch chuyển tuyến tính qua lại giữa hai đầu mút.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
       "image": "images/uploads/definition.jpg",
       "audio": "audio/scenes/definition.mp3",
-      "audioDuration": 6.264
+      "audioDuration": 6.888000000000001
     },
     {
       "id": "purpose",
       "label": "Mục đích",
-      "title": "Hạn chế sự cố",
-      "narration": "Mục đích cốt lõi của công nghệ này là triệt tiêu dòng điện khởi động quá lớn, từ đó bảo vệ lưới điện và các cơ cấu truyền động.",
-      "visualDescription": "Biểu đồ so sánh dòng điện giảm đột ngột từ dạng nhọn sang dạng thoải.",
-      "imagePrompt": "Square 1:1 pencil sketch of Biểu đồ so sánh dòng điện giảm đột ngột từ dạng nhọn sang dạng thoải.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
+      "title": "Trao đổi đơn giản",
+      "narration": "Mục đích chính của công nghệ này là tạo ra cầu nối tối ưu để các thiết bị phần cứng trao đổi thông tin với nhau mà không cần phần mạch phức tạp.",
+      "visualDescription": "Sơ đồ khối đơn giản hiển thị hai chip kết nối trực tiếp với nhau qua hai dây dẫn màu đỏ và xanh lá cây.",
+      "imagePrompt": "Square 1:1 pencil sketch of Sơ đồ khối đơn giản hiển thị hai chip kết nối trực tiếp với nhau qua hai dây dẫn màu đỏ và xanh lá cây.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
       "image": "images/uploads/purpose.jpg",
       "audio": "audio/scenes/purpose.mp3",
-      "audioDuration": 6.36
+      "audioDuration": 6.12
     },
     {
       "id": "mechanism",
       "label": "Cách hoạt động",
-      "title": "Nguyên lý tinh tế",
-      "narration": "Thiết bị dùng các van bán dẫn thyristor để cắt pha điện áp, cho phép dòng điện nạp vào cuộn dây tăng từ từ theo thời gian cài đặt.",
-      "visualDescription": "Mô phỏng các van bán dẫn đang đóng mở nhịp nhàng để điều chỉnh dòng điện.",
-      "imagePrompt": "Square 1:1 pencil sketch of Mô phỏng các van bán dẫn đang đóng mở nhịp nhàng để điều chỉnh dòng điện.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
+      "title": "Gói tin tuần tự",
+      "narration": "Quá trình hoạt động bắt đầu bằng bit bắt đầu, tiếp theo là tám bit dữ liệu thực tế, thêm bit kiểm tra chẵn lẻ rồi kết thúc bằng một hoặc hai bit dừng.",
+      "visualDescription": "Đồ thị sóng vuông dao động liên tục trên màn hình dao động ký, hiển thị các xung mức cao và mức thấp rõ rệt.",
+      "imagePrompt": "Square 1:1 pencil sketch of Đồ thị sóng vuông dao động liên tục trên màn hình dao động ký, hiển thị các xung mức cao và mức thấp rõ rệt.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
       "image": "images/uploads/mechanism.jpg",
       "audio": "audio/scenes/mechanism.mp3",
-      "audioDuration": 6.672000000000001
+      "audioDuration": 6.984
     },
     {
       "id": "example",
       "label": "Ví dụ",
-      "title": "Bơm nước mạnh mẽ",
-      "narration": "Lấy ví dụ với trạm bơm công suất lớn, dòng điện vọt lên gấp sáu lần nếu trực tiếp cấp nguồn, nhưng sẽ giảm ba lần khi dùng thiết bị này.",
-      "visualDescription": "Hệ thống ống nước công nghiệp lớn đang hoạt động ổn định không bị rung lắc.",
-      "imagePrompt": "Square 1:1 pencil sketch of Hệ thống ống nước công nghiệp lớn đang hoạt động ổn định không bị rung lắc.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
+      "title": "Kết nối máy tính",
+      "narration": "Lấy ví dụ khi bo mạch Arduino truyền một chuỗi văn bản tốc độ chín nghìn sáu trăm baud về màn hình máy tính qua cổng chuyển đổi chuẩn USB quen thuộc.",
+      "visualDescription": "Bo mạch Arduino cắm dây cáp màu đen kết nối trực tiếp với cổng USB của một chiếc máy tính xách tay đang mở sẵn bảng dòng lệnh.",
+      "imagePrompt": "Square 1:1 pencil sketch of Bo mạch Arduino cắm dây cáp màu đen kết nối trực tiếp với cổng USB của một chiếc máy tính xách tay đang mở sẵn bảng dòng lệnh.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
       "image": "images/uploads/example.jpg",
       "audio": "audio/scenes/example.mp3",
-      "audioDuration": 7.128
+      "audioDuration": 7.176
     },
     {
       "id": "real-use",
       "label": "Ứng dụng",
-      "title": "Lĩnh vực áp dụng",
-      "narration": "Nhờ ưu điểm vận hành êm, hệ thống này hiện diện khắp nơi từ băng tải khai thác mỏ, quạt thông gió hầm lò đến các hệ thống thang máy.",
-      "visualDescription": "Băng chuyền tải than trong nhà máy đang chuyển động mượt mà.",
-      "imagePrompt": "Square 1:1 pencil sketch of Băng chuyền tải than trong nhà máy đang chuyển động mượt mà.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
+      "title": "Thiết bị thực tế",
+      "narration": "Nhờ tính ổn định cao, hệ thống này hiện diện khắp nơi từ module định vị GPS, cảm biến công nghiệp cho đến các dòng máy in hóa đơn khổ nhỏ.",
+      "visualDescription": "Góc nhìn cận cảnh một mạch module GPS nhỏ gọn đang nhấp nháy đèn LED đỏ trên nền bàn làm việc kỹ thuật điện tử.",
+      "imagePrompt": "Square 1:1 pencil sketch of Góc nhìn cận cảnh một mạch module GPS nhỏ gọn đang nhấp nháy đèn LED đỏ trên nền bàn làm việc kỹ thuật điện tử.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
       "image": "images/uploads/real-use.jpg",
       "audio": "audio/scenes/real-use.mp3",
-      "audioDuration": 6.720000000000001
+      "audioDuration": 6.648000000000001
     },
     {
       "id": "variants",
       "label": "Biến thể",
-      "title": "Phân loại phổ biến",
-      "narration": "Tùy nhu cầu sử dụng, kỹ sư sẽ chọn dòng cơ bản chỉ chỉnh điện áp hoặc loại tích hợp sẵn tính năng điều khiển thông minh qua màn hình.",
-      "visualDescription": "Kỹ thuật viên đang lắp ráp hai loại tủ điện có kích thước khác nhau.",
-      "imagePrompt": "Square 1:1 pencil sketch of Kỹ thuật viên đang lắp ráp hai loại tủ điện có kích thước khác nhau.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
+      "title": "Tùy biến linh hoạt",
+      "narration": "Mặc dù cấu trúc cơ bản không đổi, các kỹ sư hoàn toàn có thể tự do điều chỉnh tốc độ truyền tải tùy theo nhu cầu và giới hạn phần cứng.",
+      "visualDescription": "Bàn tay kỹ thuật viên đang dùng tua vít chỉnh biến trở trên một bảng mạch in màu xanh lá cây có gắn nhiều linh kiện.",
+      "imagePrompt": "Square 1:1 pencil sketch of Bàn tay kỹ thuật viên đang dùng tua vít chỉnh biến trở trên một bảng mạch in màu xanh lá cây có gắn nhiều linh kiện.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
       "image": "images/uploads/variants.jpg",
       "audio": "audio/scenes/variants.mp3",
-      "audioDuration": 6.6240000000000006
+      "audioDuration": 6.456
     },
     {
       "id": "payoff",
       "label": "Câu kết",
-      "title": "Đầu tư bền vững",
-      "narration": "Đầu tư giải pháp này chính là bí quyết giúp doanh nghiệp tiết kiệm chi phí sửa chữa dài lâu.",
-      "visualDescription": "Biểu tượng bánh răng hoàn hảo quay mượt mà trên nền xanh dương.",
-      "imagePrompt": "Square 1:1 pencil sketch of Biểu tượng bánh răng hoàn hảo quay mượt mà trên nền xanh dương.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
+      "title": "Nền tảng vững chắc",
+      "narration": "Đó chính là chìa khóa kết nối thế giới điện tử.",
+      "visualDescription": "Biểu tượng chip vi xử lý phát sáng rực rỡ ở trung tâm màn hình, xung quanh là các đường mạch chuyển động mượt mà.",
+      "imagePrompt": "Square 1:1 pencil sketch of Biểu tượng chip vi xử lý phát sáng rực rỡ ở trung tâm màn hình, xung quanh là các đường mạch chuyển động mượt mà.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
       "image": "images/uploads/payoff.jpg",
       "audio": "audio/scenes/payoff.mp3",
-      "audioDuration": 4.416
+      "audioDuration": 2.424
     }
   ],
   "audioSettings": {
@@ -99,20 +99,20 @@
     "voice": 1
   },
   "backgroundMusic": "audio/Tech_music_background1.mp3",
-  "voiceCode": "n_haiphong_male_quyen12334_zero_shot_education_vc",
+  "voiceCode": "n_hanoi_male_protrainer_education_vc",
   "speedRate": 1,
   "visualSettings": {
     "logo": "logo/logo.png"
   },
   "contentStats": {
-    "totalWords": 229,
-    "estimatedDuration": 60.5
+    "totalWords": 244,
+    "estimatedDuration": 63.9
   },
-  "socialCaption": "Bạn đã bao giờ tự hỏi vì sao máy móc công suất lớn không bị giật đùng đùng khi khởi động chưa? Bí mật nằm ở một thiết bị cực kỳ thông minh này. Xem ngay để hiểu rõ nguyên lý hoạt động và lưu lại video nếu thấy kiến…\n\n#DQTECH #KhoiDongMem #DienCongNghiep #KyThuatDien #HocDienTu",
+  "socialCaption": "Bạn có bao giờ thắc mắc các vi điều khiển trò chuyện với nhau thế nào không? Giao tiếp UART chính là chìa khóa bí mật đấy! Xem ngay video này để nắm vững nguyên lý hoạt động cực kỳ thú vị chỉ trong vài phút. Nhớ bấm lưu lại…\n\n#DQTECH #UART #ViDieuKhien #DienTu #LapTrinhNhung #HocKyThuat",
   "thumbnail": {
-    "title": "Khởi động mềm là gì?",
-    "episodeNumber": 4,
-    "character": "questioning6.png",
+    "title": "UART là gì?",
+    "episodeNumber": 8,
+    "character": "questioning3.png",
     "image": "images/thumbnail/thumbnail.png"
   }
 }

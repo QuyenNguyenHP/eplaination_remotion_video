@@ -201,7 +201,7 @@ const THUMBNAIL_CONCEPT = Object.freeze({
   brand: "DQTECH",
   series: "CONCEPT EXPLAINER",
   durationText: "HIỂU NHANH TRONG 60 GIÂY",
-  footer: "CÔNG NGHỆ • TỰ ĐỘNG HÓA • NĂNG LƯỢNG",
+  footer: "CÔNG NGHỆ - TỰ ĐỘNG HÓA - IT",
   colorA: "#f44911",
   colorB: "#0991df",
 });
