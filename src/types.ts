@@ -1,2 +1,2 @@
 export type Scene={id:string;label:string;title:string;narration:string;visualDescription:string;imagePrompt:string;image?:string;audio?:string;audioDuration?:number;character?:string};
-export type Episode={topic:string;audience:string;language:string;style:string;promptTemplate:string;scenes:Scene[];backgroundMusic?:string;voiceCode?:string;speedRate?:number;audioSettings?:{musicWithVoice:number;voice:number};visualSettings?:{logo?:string}};
+export type Episode={topic:string;audience:string;language:string;style:string;promptTemplate:string;scenes:Scene[];backgroundMusic?:string;voiceCode?:string;speedRate?:number;audioSettings?:{musicWithVoice:number;voice:number};visualSettings?:{logo?:string;logoScale?:number}};

@@ -19,6 +19,9 @@ Yêu cầu nội dung:
 - Không lặp lại cùng một thông tin ở nhiều scene.
 - Ưu tiên câu ngắn, nhịp nói tự nhiên, dễ đọc thành voice-over.
 - Không sử dụng quá nhiều thuật ngữ kỹ thuật trong cùng một câu. Nếu cần thuật ngữ, giải thích bằng ngôn ngữ đơn giản.
+- Nếu chủ đề hoặc thuật ngữ kỹ thuật là từ viết tắt, scene Định nghĩa bắt buộc nêu tên đầy đủ chính xác bằng tiếng Anh ngay sau từ viết tắt ở lần xuất hiện đầu tiên, rồi mới giải thích bằng tiếng Việt. Ví dụ: “NVMe (Non-Volatile Memory Express) là…”.
+- Giữ nguyên tên đầy đủ tiếng Anh, không dịch thay thế và không tự suy đoán phần mở rộng cho thuật ngữ không phải từ viết tắt.
+- Mọi từ viết tắt kỹ thuật khác xuất hiện trong nội dung cũng phải được giải nghĩa ở lần xuất hiện đầu tiên.
 
 Yêu cầu từng scene:
 
@@ -27,7 +30,7 @@ Yêu cầu từng scene:
 - Ví dụ title hợp lệ: “Ngắt điện an toàn”, “Bảo vệ quá tải”, “Dòng điện ổn định”.
 
 - Scene 1 – Hook: tạo sự tò mò hoặc đặt một câu hỏi thực tế liên quan đến việc các thiết bị công nghiệp giao tiếp với nhau.
-- Scene 2 – Định nghĩa: giải thích khái niệm bằng ngôn ngữ đơn giản, không quá học thuật.
+- Scene 2 – Định nghĩa: giải thích khái niệm bằng ngôn ngữ đơn giản, không quá học thuật; nếu khái niệm là từ viết tắt, phải nói rõ tên đầy đủ bằng tiếng Anh.
 - Scene 3 – Mục đích: giải thích vấn đề mà công nghệ này giúp giải quyết, tránh lặp lại định nghĩa.
 - Scene 4 – Cách hoạt động: mô tả nguyên lý chính theo cách dễ hình dung, không đi quá sâu vào kỹ thuật.
 - Scene 5 – Ví dụ: phải có một ví dụ cụ thể, dữ liệu cụ thể hoặc tình huống thực tế giúp người xem hình dung cách nó hoạt động.
@@ -57,9 +60,12 @@ Trước khi trả kết quả, hãy tự kiểm tra:
 - Không lặp lại cùng một thông tin ở hai scene.
 - Scene 5 có ví dụ hoặc dữ liệu cụ thể.
 - Scene 8 ngắn và dễ nhớ.
+- Nếu chủ đề là từ viết tắt, scene Định nghĩa đã nêu đúng tên đầy đủ bằng tiếng Anh.
 - JSON hợp lệ.
 
 Chỉ trả về JSON hợp lệ, không markdown, không giải thích.
+
+Sau mảng scenes, bắt buộc thêm trường fullNarration ở cuối JSON. fullNarration phải tổng hợp nguyên văn narration của cả 8 scene theo đúng thứ tự, dùng chính xác các marker [SCENE 1] đến [SCENE 8]. Mỗi marker nằm trên một dòng riêng để người dùng có thể sửa toàn bộ lời thoại một lần trước khi tạo voice.
 
 Trả về đúng cấu trúc:
 {
@@ -129,7 +135,8 @@ Trả về đúng cấu trúc:
       "visualDescription": "Mô tả hình.",
       "imagePrompt": "Prompt ảnh tiếng Anh."
     }
-  ]
+  ],
+  "fullNarration": "[SCENE 1]\\nLời thoại scene 1.\\n\\n[SCENE 2]\\nLời thoại scene 2.\\n\\n[SCENE 3]\\nLời thoại scene 3.\\n\\n[SCENE 4]\\nLời thoại scene 4.\\n\\n[SCENE 5]\\nLời thoại scene 5.\\n\\n[SCENE 6]\\nLời thoại scene 6.\\n\\n[SCENE 7]\\nLời thoại scene 7.\\n\\n[SCENE 8]\\nLời thoại scene 8."
 }`;
 const status = (text, type = "") => {
   $("#status").textContent = text;
@@ -190,9 +197,72 @@ const defaultCharacterFor = (scene) =>
   config.defaultCharacters?.[scene.id] ||
   config.characters[0] ||
   "";
+const DEFAULT_VIDEO_THEME = Object.freeze({
+  name: "DQTECH · Cam / xanh",
+  colorA: "#f44911",
+  colorB: "#0991df",
+});
+const VIDEO_THEMES = Object.freeze({
+  "logo/mina.png": {
+    name: "MINA · Vàng kim",
+    colorA: "#C9A44F",
+    colorB: "#F2D58A",
+  },
+});
+const currentVideoLogo = () =>
+  $("#video-logo")?.value || episode?.visualSettings?.logo || "logo/logo.png";
+const currentVideoTheme = () =>
+  VIDEO_THEMES[currentVideoLogo()] || DEFAULT_VIDEO_THEME;
+const isMinaTheme = () => currentVideoLogo() === "logo/mina.png";
 const thumbnailQuestion = (topic) => {
   const value = String(topic || "").trim().replace(/[?.!]+$/, "");
   return value ? `${value} là gì?` : "Khái niệm này là gì?";
+};
+const formatFullNarration = (scenes = []) =>
+  scenes
+    .map((scene, index) => `[SCENE ${index + 1}]\n${String(scene.narration || "").trim()}`)
+    .join("\n\n");
+const parseFullNarration = (value) => {
+  const blocks = [];
+  const pattern = /\[SCENE\s+(\d+)\]\s*\n?([\s\S]*?)(?=\n\s*\[SCENE\s+\d+\]|$)/gi;
+  let match;
+  while ((match = pattern.exec(String(value || "")))) {
+    blocks.push({index: Number(match[1]), narration: match[2].trim()});
+  }
+  if (
+    blocks.length !== 8 ||
+    blocks.some((block, index) => block.index !== index + 1 || !block.narration)
+  ) {
+    throw new Error("Lời thoại tổng hợp phải có đủ marker [SCENE 1] đến [SCENE 8], mỗi scene không được để trống.");
+  }
+  return blocks.map((block) => block.narration);
+};
+const refreshNarrationStats = () => {
+  const textarea = $("#full-narration");
+  if (!textarea) return;
+  const words = textarea.value
+    .replace(/\[SCENE\s+\d+\]/gi, " ")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean).length;
+  $("#full-narration-stats").textContent = `${words} từ · 8 scene`;
+};
+const syncNarrationFromEditor = () => {
+  const textarea = $("#full-narration");
+  if (!textarea) return;
+  const narrations = parseFullNarration(textarea.value);
+  episode.scenes = episode.scenes.map((scene, index) => {
+    if (scene.narration === narrations[index]) return scene;
+    return {
+      ...scene,
+      narration: narrations[index],
+      audio: undefined,
+      audioDuration: undefined,
+    };
+  });
+  episode.fullNarration = formatFullNarration(episode.scenes);
+  textarea.value = episode.fullNarration;
+  refreshNarrationStats();
 };
 const THUMBNAIL_CONCEPT = Object.freeze({
   width: 1080,
@@ -217,6 +287,7 @@ const mergeJson = (input) => ({
   voiceCode: episode.voiceCode,
   speedRate: episode.speedRate,
   audioSettings: episode.audioSettings,
+  fullNarration: input.fullNarration || formatFullNarration(input.scenes),
   scenes: input.scenes.map((scene, index) => ({
     ...episode.scenes[index],
     ...scene,
@@ -227,10 +298,11 @@ const mergeJson = (input) => ({
   })),
 });
 const renderScenes = () => {
+  const hideCharacters = isMinaTheme();
   $("#scenes").innerHTML = episode.scenes
     .map(
       (s, i) =>
-        `<article class="scene-editor" data-index="${i}"><div class="scene-title"><strong>0${i + 1}</strong><div><small>${esc(s.label)}</small><h3>${esc(s.title)}</h3></div></div><label class="image-picker"><span>Hình ảnh scene</span><input class="scene-image" type="file" accept="image/*"/><img class="scene-preview ${s.image ? "visible" : ""}" src="${s.image ? `${BASE_PATH}/media/${encodeURI(s.image)}?v=${Date.now()}` : ""}"/><b>${s.image ? "Thay hình ảnh" : "Chọn hình ảnh"}</b></label><label>Chọn nhân vật<select class="character"><option value="">Nhân vật mặc định</option>${config.characters.map((c) => `<option value="${esc(c)}" ${c === s.character ? "selected" : ""}>${esc(c.replace(/\.png$/i, ""))}</option>`).join("")}</select></label><div class="character-box visible"><img src="${BASE_PATH}/characters/${encodeURIComponent(defaultCharacterFor(s))}" alt="Nhân vật đã chọn"/></div><label>Prompt sinh ảnh<textarea class="image-prompt">${esc(s.imagePrompt)}</textarea></label><div class="scene-image-actions"><button class="generate-scene">Tạo ảnh scene này</button><button class="copy-prompt ghost">Copy prompt</button></div></article>`,
+        `<article class="scene-editor" data-index="${i}"><div class="scene-title"><strong>0${i + 1}</strong><div><small>${esc(s.label)}</small><h3>${esc(s.title)}</h3></div></div><label class="image-picker"><span>Hình ảnh scene</span><input class="scene-image" type="file" accept="image/*"/><img class="scene-preview ${s.image ? "visible" : ""}" src="${s.image ? `${BASE_PATH}/media/${encodeURI(s.image)}?v=${Date.now()}` : ""}"/><b>${s.image ? "Thay hình ảnh" : "Chọn hình ảnh"}</b></label><label class="character-control ${hideCharacters ? "disabled" : ""}">Chọn nhân vật${hideCharacters ? " · Không dùng với MINA" : ""}<select class="character" ${hideCharacters ? "disabled" : ""}><option value="">Nhân vật mặc định</option>${config.characters.map((c) => `<option value="${esc(c)}" ${c === s.character ? "selected" : ""}>${esc(c.replace(/\.png$/i, ""))}</option>`).join("")}</select></label><div class="character-box ${hideCharacters ? "" : "visible"}"><img src="${BASE_PATH}/characters/${encodeURIComponent(defaultCharacterFor(s))}" alt="Nhân vật đã chọn"/></div><label>Prompt sinh ảnh<textarea class="image-prompt">${esc(s.imagePrompt)}</textarea></label><div class="scene-image-actions"><button class="generate-scene">Tạo ảnh scene này</button><button class="copy-prompt ghost">Copy prompt</button></div></article>`,
     )
     .join("");
   document.querySelectorAll(".scene-editor").forEach((card) => {
@@ -308,6 +380,7 @@ const renderScenes = () => {
   });
 };
 const readAudio = () => {
+  syncNarrationFromEditor();
   episode.voiceCode = $("#voice").value;
   episode.backgroundMusic = $("#music").value;
   episode.audioSettings = {
@@ -316,6 +389,7 @@ const readAudio = () => {
   };
   episode.visualSettings = {
     logo: $("#video-logo").value,
+    logoScale: Number($("#video-logo-size").value) / 100,
   };
   episode.thumbnail = {
     title: $("#thumbnail-title").value.trim() || thumbnailQuestion(episode.topic),
@@ -351,12 +425,39 @@ const fill = () => {
     : "logo/logo.png";
   $("#video-logo").innerHTML = '<option value="">Không dùng logo</option>' + config.logos.map((src)=>`<option value="${esc(src)}">${esc(src.split('/').at(-1))}</option>`).join("");
   $("#video-logo").value = selectedLogo;
+  $("#video-logo-size").value = Math.round(
+    (episode.visualSettings?.logoScale ?? 1) * 100,
+  );
   const refreshLogoPreview = () => {
     const src = $("#video-logo").value;
+    const theme = currentVideoTheme();
+    const logoScale = Number($("#video-logo-size").value) / 100;
     $("#video-logo-preview").src = src ? `${BASE_PATH}/media/${encodeURI(src)}` : "";
     $("#video-logo-preview").classList.toggle("visible", Boolean(src));
+    $("#video-logo-preview").style.transform = `scale(${logoScale})`;
+    $("#video-logo-size-value").value = `${Math.round(logoScale * 100)}%`;
+    $("#video-theme-name").textContent = theme.name;
+    $("#video-theme-a").style.background = theme.colorA;
+    $("#video-theme-b").style.background = theme.colorB;
   };
-  $("#video-logo").onchange = refreshLogoPreview;
+  $("#video-logo").onchange = () => {
+    episode.visualSettings = {
+      ...episode.visualSettings,
+      logo: $("#video-logo").value,
+    };
+    refreshLogoPreview();
+    renderScenes();
+    status(isMinaTheme()
+      ? "Đã chọn theme MINA. Nhân vật sẽ không xuất hiện trong video."
+      : "Đã cập nhật logo và theme video.", "ok");
+  };
+  $("#video-logo-size").oninput = () => {
+    episode.visualSettings = {
+      ...episode.visualSettings,
+      logoScale: Number($("#video-logo-size").value) / 100,
+    };
+    refreshLogoPreview();
+  };
   refreshLogoPreview();
   const savedThumbnailTitle = episode.thumbnail?.title;
   $("#thumbnail-title").value = !savedThumbnailTitle || savedThumbnailTitle === episode.topic
@@ -372,6 +473,9 @@ const fill = () => {
   $("#thumbnail-character").onchange = refreshThumbnailCharacter;
   refreshThumbnailCharacter();
   $("#social-caption").value = episode.socialCaption || "";
+  $("#full-narration").value = formatFullNarration(episode.scenes);
+  $("#full-narration").oninput = refreshNarrationStats;
+  refreshNarrationStats();
   if (episode.thumbnail?.image) {
     $("#thumbnail-preview").src = `${BASE_PATH}/media/${encodeURI(episode.thumbnail.image)}?v=${Date.now()}`;
     $("#thumbnail-preview").classList.add("visible");
@@ -549,6 +653,8 @@ $("#apply-json").onclick = () => {
       throw new Error("JSON phải có đúng 8 scene.");
     episode = mergeJson(value);
     episode.scenes = episode.scenes.map((scene) => ({...scene, image:"", audio:undefined, audioDuration:undefined}));
+    $("#full-narration").value = formatFullNarration(episode.scenes);
+    refreshNarrationStats();
     renderScenes();
     status(`Đã áp dụng chủ đề “${episode.topic}”.`, "ok");
   } catch (e) {
@@ -591,6 +697,8 @@ const generateJsonFromTopic = async () => {
     $("#download-thumbnail").hidden = true;
     $("#social-caption").value = "";
     $("#json-input").value = JSON.stringify(generated, null, 2);
+    $("#full-narration").value = formatFullNarration(episode.scenes);
+    refreshNarrationStats();
     renderScenes();
     await save();
     await generateSocialCaption();
@@ -657,6 +765,12 @@ $("#audio").onclick = async () => {
   }
 };
 $("#render").onclick = async () => {
+  try {
+    syncNarrationFromEditor();
+  } catch (e) {
+    status(e.message, "error");
+    return;
+  }
   const missingImages = episode.scenes.filter((scene) => !scene.image);
   const missingAudio = episode.scenes.filter((scene) => !scene.audio);
   if (missingImages.length || missingAudio.length) {

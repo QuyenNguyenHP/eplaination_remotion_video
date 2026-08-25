@@ -19,13 +19,20 @@ const DEFAULT_SCENE_SECONDS = 4;
 const MIN_SCENE_SECONDS = 3;
 const SCENE_TAIL_SECONDS = 0.65;
 const CAPTION_WORDS_PER_CHUNK = 6;
+const CAPTION_TOP = 250;
+const CAPTION_MIN_HEIGHT = 132;
+const IMAGE_CROSSFADE_FRAMES = 12;
 
-// Fixed layout. Edit these values to reposition the logo or soundwave.
-const LOGO_LAYOUT = {x: 50, y: 80, width: 920, opacity: 0.12};
-const SOUNDWAVE_LAYOUT = {x: 50, y: 80};
+// Fixed layout. Edit these values to reposition the visual elements.
+const LOGO_LAYOUT = {x: 50, y: 90, width: 920, opacity: 0.12};
+const SOUNDWAVE_LAYOUT = {x: 50, y: 85};
+const ILLUSTRATION_LAYOUT = {left: 56, right: 56, top: 500, height: 980};
 
-const BRAND_A = '#f44911';
-const BRAND_B = '#0991df';
+const DEFAULT_THEME = {accent: '#f44911', accentEnd: '#0991df'};
+const LOGO_THEMES: Record<string, typeof DEFAULT_THEME> = {
+  'logo/mina.png': {accent: '#C9A44F', accentEnd: '#F2D58A'},
+};
+const themeForLogo = (logo?: string) => LOGO_THEMES[logo || ''] ?? DEFAULT_THEME;
 
 const fallbackSymbols: Record<string, string> = {
   hook: 'M',
@@ -132,14 +139,14 @@ const Caption = ({
   return (
     <div
       style={{
-        minHeight: 174,
+        minHeight: CAPTION_MIN_HEIGHT,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         flexWrap: 'wrap',
         alignContent: 'center',
         gap: '4px 16px',
-        padding: '28px 34px',
+        padding: 0,
         border: '1px solid rgba(255,255,255,.12)',
         borderRadius: 30,
         background: 'rgba(5,12,28,.88)',
@@ -248,33 +255,38 @@ const SceneFrame = ({
   totalScenes,
   durationInFrames,
   visualSettings,
+  nextScene,
 }: {
   scene: Scene;
   index: number;
   totalScenes: number;
   durationInFrames: number;
   visualSettings?: Episode['visualSettings'];
+  nextScene?: Scene;
 }) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
-  const accent = BRAND_A;
-  const accentEnd = BRAND_B;
+  const logo = visualSettings?.logo ?? 'logo/logo.png';
+  const logoScale = visualSettings?.logoScale ?? 1;
+  const {accent, accentEnd} = themeForLogo(logo);
   const enter = spring({frame, fps, config: {damping: 18, stiffness: 105}});
-  const exit = interpolate(
-    frame,
-    [durationInFrames - 10, durationInFrames - 1],
-    [1, 0],
-    clamp,
-  );
+  const imageTransition = nextScene
+    ? interpolate(
+        frame,
+        [durationInFrames - IMAGE_CROSSFADE_FRAMES, durationInFrames - 1],
+        [0, 1],
+        clamp,
+      )
+    : 0;
   const imageScale = interpolate(frame, [0, durationInFrames], [1.1, 1.025], clamp);
   const imageX = interpolate(frame, [0, durationInFrames], [-12, 12], clamp);
   const speechDuration = scene.audioDuration
     ? Math.ceil(scene.audioDuration * fps)
     : Math.max(1, durationInFrames - Math.ceil(SCENE_TAIL_SECONDS * fps));
   const progress = (index + frame / durationInFrames) / totalScenes;
-  const character = scene.character || defaultCharacters[scene.id];
-  const logo = visualSettings?.logo ?? 'logo/logo.png';
-
+  const character = logo === 'logo/mina.png'
+    ? undefined
+    : scene.character || defaultCharacters[scene.id];
   return (
     <AbsoluteFill
       style={{
@@ -282,69 +294,93 @@ const SceneFrame = ({
         color: '#fff',
         fontFamily: 'Inter, Manrope, Arial, sans-serif',
         overflow: 'hidden',
-        opacity: exit,
       }}
     >
       <div
         style={{
           position: 'absolute',
           inset: 0,
-          background: `radial-gradient(circle at 20% 38%, ${BRAND_A}30 0, transparent 42%), radial-gradient(circle at 80% 52%, ${BRAND_B}30 0, transparent 44%), #030916`,
+          background: `radial-gradient(circle at 20% 38%, ${DEFAULT_THEME.accent}30 0, transparent 42%), radial-gradient(circle at 80% 52%, ${DEFAULT_THEME.accentEnd}30 0, transparent 44%), #030916`,
         }}
       />
       {logo && <Img
         src={staticFile(logo)}
         style={{
           position:'absolute',
-          width:LOGO_LAYOUT.width,
-          height:LOGO_LAYOUT.width,
+          width:LOGO_LAYOUT.width * logoScale,
+          height:LOGO_LAYOUT.width * logoScale,
           left:`${LOGO_LAYOUT.x}%`,
           top:`${LOGO_LAYOUT.y}%`,
           transform:'translate(-50%,-50%)',
           objectFit:'contain',
           opacity:LOGO_LAYOUT.opacity,
           zIndex:0,
+          translate: "-0.1px -134.5px"
         }}
       />}
       <div
         style={{
           position: 'absolute',
           zIndex: 1,
-          left: 56,
-          right: 56,
-          top: 390,
-          height: 980,
-          overflow: 'hidden',
-          border: '1px solid rgba(255,255,255,.14)',
-          borderRadius: 44,
-          background: '#071629',
-          boxShadow: `0 28px 110px ${accent}25`,
+          left: ILLUSTRATION_LAYOUT.left,
+          right: ILLUSTRATION_LAYOUT.right,
+          top: ILLUSTRATION_LAYOUT.top,
+          height: ILLUSTRATION_LAYOUT.height,
         }}
       >
-        {scene.image ? (
-          <Img
-            src={staticFile(scene.image)}
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              transform: `translateX(${imageX}px) scale(${imageScale})`,
-              translate: "7.6px 37.8px"
-            }}
-          />
-        ) : (
-          <FallbackVisual scene={scene} accent={accent} />
-        )}
         <div
           style={{
             position: 'absolute',
             inset: 0,
-            background:
-              'linear-gradient(180deg,#f449110d,transparent 50%,#0991df24)',
+            overflow: 'hidden',
+            border: '1px solid rgba(255,255,255,.14)',
+            borderRadius: 44,
+            background: '#071629',
+            boxShadow: `0 28px 110px ${accent}25`,
           }}
-        />
+        >
+          <div style={{position: 'absolute', inset: 0, opacity: 1 - imageTransition}}>
+            {scene.image ? (
+              <Img
+                src={staticFile(scene.image)}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  transform: `translateX(${imageX}px) scale(${imageScale})`,
+                }}
+              />
+            ) : (
+              <FallbackVisual scene={scene} accent={accent} />
+            )}
+          </div>
+          {nextScene && (
+            <div style={{position: 'absolute', inset: 0, opacity: imageTransition}}>
+              {nextScene.image ? (
+                <Img
+                  src={staticFile(nextScene.image)}
+                  style={{width: '100%', height: '100%', objectFit: 'cover', transform: 'scale(1.1)'}}
+                />
+              ) : (
+                <FallbackVisual scene={nextScene} accent={accent} />
+              )}
+            </div>
+          )}
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              background: `linear-gradient(180deg,${accent}0d,transparent 50%,${accentEnd}24)`,
+            }}
+          />
+        </div>
       </div>
-      <SoundWave x={SOUNDWAVE_LAYOUT.x} y={SOUNDWAVE_LAYOUT.y} />
+      <SoundWave
+        x={SOUNDWAVE_LAYOUT.x}
+        y={SOUNDWAVE_LAYOUT.y}
+        colorA={accent}
+        colorB={accentEnd}
+      />
       <div
         style={{
           position: 'absolute',
@@ -387,7 +423,15 @@ const SceneFrame = ({
           }}
         />
       )}
-      <div style={{position: 'absolute', zIndex: 6, left: 64, right: 64, bottom: 105}}>
+      <div
+        style={{
+          position: 'absolute',
+          zIndex: 6,
+          left: 64,
+          right: 64,
+          top: CAPTION_TOP,
+        }}
+      >
         <Caption
           text={scene.narration}
           durationInFrames={durationInFrames}
@@ -425,6 +469,9 @@ const SceneFrame = ({
 export const ExplainerVideo = ({episode}: {episode: Episode}) => {
   const contentDuration =
     getDuration(episode) - OUTRO_FRAMES;
+  const selectedLogo = episode.visualSettings?.logo ?? 'logo/logo.png';
+  const logoScale = episode.visualSettings?.logoScale ?? 1;
+  const theme = themeForLogo(selectedLogo);
   let startFrame = 0;
 
   return (
@@ -456,6 +503,7 @@ export const ExplainerVideo = ({episode}: {episode: Episode}) => {
               totalScenes={episode.scenes.length}
               durationInFrames={durationInFrames}
               visualSettings={episode.visualSettings}
+              nextScene={episode.scenes[index + 1]}
             />
             {scene.audio && (
               <Audio
@@ -467,7 +515,12 @@ export const ExplainerVideo = ({episode}: {episode: Episode}) => {
         );
       })}
       <Sequence from={contentDuration} durationInFrames={OUTRO_FRAMES} premountFor={FPS}>
-        <OutroScene />
+        <OutroScene
+          logo={selectedLogo}
+          logoScale={logoScale}
+          accent={theme.accent}
+          accentEnd={theme.accentEnd}
+        />
       </Sequence>
     </AbsoluteFill>
   );

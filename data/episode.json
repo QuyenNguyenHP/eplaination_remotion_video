@@ -1,5 +1,5 @@
 {
-  "topic": "UART",
+  "topic": "Merchandiser ngành may mặc",
   "audience": "Người mới bắt đầu tìm hiểu tự động hóa công nghiệp",
   "language": "Tiếng Việt",
   "style": "minh họa công nghiệp 3D hiện đại, xanh navy và cyan",
@@ -8,90 +8,90 @@
     {
       "id": "hook",
       "label": "Hook",
-      "title": "Giao tiếp phần cứng",
-      "narration": "Bạn có bao giờ thắc mắc các linh kiện điện tử trò chuyện với nhau bằng cách nào không? Bí mật nằm ở một giao thức truyền dữ liệu kinh điển được sử dụng rộng rãi.",
-      "visualDescription": "Hai vi điều khiển đặt đối diện nhau trên mạch điện, có các tia sáng phát ra từ chân cắm tượng trưng cho tín hiệu điện đang truyền đi.",
-      "imagePrompt": "Square 1:1 pencil sketch of Hai vi điều khiển đặt đối diện nhau trên mạch điện, có các tia sáng phát ra từ chân cắm tượng trưng cho tín hiệu điện đang truyền đi.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
+      "title": "Chìa khóa đơn hàng",
+      "narration": "Bạn có tò mò ai là người biến những bản phác thảo thời trang thành trang phục thực tế trên kệ hàng không? Họ chính là nhân sự quản lý chuỗi cung ứng sản xuất.",
+      "visualDescription": "Nhà thiết kế phác thảo trang phục chuyển giao cho nhân sự văn phòng",
+      "imagePrompt": "Square 1:1 pencil sketch of Nhà thiết kế phác thảo trang phục chuyển giao cho nhân sự văn phòng. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
       "image": "images/uploads/hook.jpg",
       "audio": "audio/scenes/hook.mp3",
-      "audioDuration": 7.32
+      "audioDuration": 7.9412244897959186
     },
     {
       "id": "definition",
       "label": "Định nghĩa",
-      "title": "Truyền dữ liệu nối",
-      "narration": "Đây là phương thức truyền thông tin không cần xung nhịp đồng hồ chung. Dữ liệu được gửi đi lần lượt từng bit qua một đường dây riêng biệt từ bên gửi sang bên nhận.",
-      "visualDescription": "Cận cảnh một đường mạch đồng trên bo mạch, các chấm vuông nhỏ nối tiếp nhau dịch chuyển tuyến tính qua lại giữa hai đầu mút.",
-      "imagePrompt": "Square 1:1 pencil sketch of Cận cảnh một đường mạch đồng trên bo mạch, các chấm vuông nhỏ nối tiếp nhau dịch chuyển tuyến tính qua lại giữa hai đầu mút.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
+      "title": "Người kết nối chính",
+      "narration": "VM (Visual Merchandiser) hoặc Merchandiser là vị trí chịu trách nhiệm xuyên suốt từ khâu chọn nguyên phụ liệu đến khi giao sản phẩm hoàn thiện đến tay đối tác đúng hạn.",
+      "visualDescription": "Nhân viên kiểm tra các mẫu vải và phụ liệu may mặc trên bàn làm việc",
+      "imagePrompt": "Square 1:1 pencil sketch of Nhân viên kiểm tra các mẫu vải và phụ liệu may mặc trên bàn làm việc. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
       "image": "images/uploads/definition.jpg",
       "audio": "audio/scenes/definition.mp3",
-      "audioDuration": 6.888000000000001
+      "audioDuration": 8.986122448979591
     },
     {
       "id": "purpose",
       "label": "Mục đích",
-      "title": "Trao đổi đơn giản",
-      "narration": "Mục đích chính của công nghệ này là tạo ra cầu nối tối ưu để các thiết bị phần cứng trao đổi thông tin với nhau mà không cần phần mạch phức tạp.",
-      "visualDescription": "Sơ đồ khối đơn giản hiển thị hai chip kết nối trực tiếp với nhau qua hai dây dẫn màu đỏ và xanh lá cây.",
-      "imagePrompt": "Square 1:1 pencil sketch of Sơ đồ khối đơn giản hiển thị hai chip kết nối trực tiếp với nhau qua hai dây dẫn màu đỏ và xanh lá cây.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
+      "title": "Tối ưu lợi nhuận",
+      "narration": "Mục tiêu tối thượng của vị trí này là cân đối hoàn hảo giữa chất lượng thẩm mỹ, ngân sách sản xuất và thời gian biểu để đạt mức sinh lời cao nhất.",
+      "visualDescription": "Bảng tính chi phí và biểu đồ thời gian sản xuất hiển thị trên màn hình máy tính",
+      "imagePrompt": "Square 1:1 pencil sketch of Bảng tính chi phí và biểu đồ thời gian sản xuất hiển thị trên màn hình máy tính. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
       "image": "images/uploads/purpose.jpg",
       "audio": "audio/scenes/purpose.mp3",
-      "audioDuration": 6.12
+      "audioDuration": 7.1053061224489795
     },
     {
       "id": "mechanism",
       "label": "Cách hoạt động",
-      "title": "Gói tin tuần tự",
-      "narration": "Quá trình hoạt động bắt đầu bằng bit bắt đầu, tiếp theo là tám bit dữ liệu thực tế, thêm bit kiểm tra chẵn lẻ rồi kết thúc bằng một hoặc hai bit dừng.",
-      "visualDescription": "Đồ thị sóng vuông dao động liên tục trên màn hình dao động ký, hiển thị các xung mức cao và mức thấp rõ rệt.",
-      "imagePrompt": "Square 1:1 pencil sketch of Đồ thị sóng vuông dao động liên tục trên màn hình dao động ký, hiển thị các xung mức cao và mức thấp rõ rệt.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
+      "title": "Quy trình thực hiện",
+      "narration": "Họ bắt đầu bằng việc nhận yêu cầu mẫu, làm việc với nhà cung cấp vải, theo dõi xưởng gia công ráp mẫu rồi kiểm duyệt chất lượng trước đại trà.",
+      "visualDescription": "Nhân sự thảo luận trực tiếp với thợ may tại xưởng sản xuất quần áo",
+      "imagePrompt": "Square 1:1 pencil sketch of Nhân sự thảo luận trực tiếp với thợ may tại xưởng sản xuất quần áo. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
       "image": "images/uploads/mechanism.jpg",
       "audio": "audio/scenes/mechanism.mp3",
-      "audioDuration": 6.984
+      "audioDuration": 7.288163265306123
     },
     {
       "id": "example",
       "label": "Ví dụ",
-      "title": "Kết nối máy tính",
-      "narration": "Lấy ví dụ khi bo mạch Arduino truyền một chuỗi văn bản tốc độ chín nghìn sáu trăm baud về màn hình máy tính qua cổng chuyển đổi chuẩn USB quen thuộc.",
-      "visualDescription": "Bo mạch Arduino cắm dây cáp màu đen kết nối trực tiếp với cổng USB của một chiếc máy tính xách tay đang mở sẵn bảng dòng lệnh.",
-      "imagePrompt": "Square 1:1 pencil sketch of Bo mạch Arduino cắm dây cáp màu đen kết nối trực tiếp với cổng USB của một chiếc máy tính xách tay đang mở sẵn bảng dòng lệnh.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
+      "title": "Ví dụ thực tế",
+      "narration": "Đơn hàng năm mươi nghìn chiếc áo sơ mi đòi hỏi đặt trước một tấn vải cotton, kiểm định độ bền màu và chốt xong mẫu chuẩn chỉ trong vòng hai tuần.",
+      "visualDescription": "Cuộn vải cotton lớn chất đầy trong kho xưởng nhà máy may mặc",
+      "imagePrompt": "Square 1:1 pencil sketch of Cuộn vải cotton lớn chất đầy trong kho xưởng nhà máy may mặc. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
       "image": "images/uploads/example.jpg",
       "audio": "audio/scenes/example.mp3",
-      "audioDuration": 7.176
+      "audioDuration": 7.471020408163265
     },
     {
       "id": "real-use",
       "label": "Ứng dụng",
-      "title": "Thiết bị thực tế",
-      "narration": "Nhờ tính ổn định cao, hệ thống này hiện diện khắp nơi từ module định vị GPS, cảm biến công nghiệp cho đến các dòng máy in hóa đơn khổ nhỏ.",
-      "visualDescription": "Góc nhìn cận cảnh một mạch module GPS nhỏ gọn đang nhấp nháy đèn LED đỏ trên nền bàn làm việc kỹ thuật điện tử.",
-      "imagePrompt": "Square 1:1 pencil sketch of Góc nhìn cận cảnh một mạch module GPS nhỏ gọn đang nhấp nháy đèn LED đỏ trên nền bàn làm việc kỹ thuật điện tử.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
+      "title": "Lĩnh vực áp dụng",
+      "narration": "Năng lực điều phối này hiện diện ở mọi doanh nghiệp sản xuất hàng may mặc xuất khẩu, các thương hiệu thời trang nhanh lẫn nhà mốt thiết kế cao cấp.",
+      "visualDescription": "Cửa hàng thời trang đông khách và kho hàng xuất khẩu đóng gói container",
+      "imagePrompt": "Square 1:1 pencil sketch of Cửa hàng thời trang đông khách và kho hàng xuất khẩu đóng gói container. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
       "image": "images/uploads/real-use.jpg",
       "audio": "audio/scenes/real-use.mp3",
-      "audioDuration": 6.648000000000001
+      "audioDuration": 6.739591836734694
     },
     {
       "id": "variants",
       "label": "Biến thể",
-      "title": "Tùy biến linh hoạt",
-      "narration": "Mặc dù cấu trúc cơ bản không đổi, các kỹ sư hoàn toàn có thể tự do điều chỉnh tốc độ truyền tải tùy theo nhu cầu và giới hạn phần cứng.",
-      "visualDescription": "Bàn tay kỹ thuật viên đang dùng tua vít chỉnh biến trở trên một bảng mạch in màu xanh lá cây có gắn nhiều linh kiện.",
-      "imagePrompt": "Square 1:1 pencil sketch of Bàn tay kỹ thuật viên đang dùng tua vít chỉnh biến trở trên một bảng mạch in màu xanh lá cây có gắn nhiều linh kiện.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
+      "title": "Phân loại công việc",
+      "narration": "Tùy thuộc quy mô công ty, vai trò này được chia thành nhân sự chuyên lo nguồn nguyên liệu, chuyên theo dõi đơn hàng hoặc chuyên định giá sản phẩm.",
+      "visualDescription": "Sơ đồ phân nhánh các vị trí công việc trong phòng quản lý sản xuất",
+      "imagePrompt": "Square 1:1 pencil sketch of Sơ đồ phân nhánh các vị trí công việc trong phòng quản lý sản xuất. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
       "image": "images/uploads/variants.jpg",
       "audio": "audio/scenes/variants.mp3",
-      "audioDuration": 6.456
+      "audioDuration": 7.026938775510204
     },
     {
       "id": "payoff",
       "label": "Câu kết",
-      "title": "Nền tảng vững chắc",
-      "narration": "Đó chính là chìa khóa kết nối thế giới điện tử.",
-      "visualDescription": "Biểu tượng chip vi xử lý phát sáng rực rỡ ở trung tâm màn hình, xung quanh là các đường mạch chuyển động mượt mà.",
-      "imagePrompt": "Square 1:1 pencil sketch of Biểu tượng chip vi xử lý phát sáng rực rỡ ở trung tâm màn hình, xung quanh là các đường mạch chuyển động mượt mà.. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
+      "title": "Nền tảng thành công",
+      "narration": "Nghề này quyết định nhịp độ dòng chảy thời trang toàn cầu.",
+      "visualDescription": "Dây chuyền may mặc hoạt động ổn định với các sản phẩm hoàn thiện treo gọn gàng",
+      "imagePrompt": "Square 1:1 pencil sketch of Dây chuyền may mặc hoạt động ổn định với các sản phẩm hoàn thiện treo gọn gàng. Handwritten note-taking infographic on textured white paper, graphite lines, hand-drawn arrows, circles and underlines, short handwritten keywords only, clean centered composition, no logo or watermark.",
       "image": "images/uploads/payoff.jpg",
       "audio": "audio/scenes/payoff.mp3",
-      "audioDuration": 2.424
+      "audioDuration": 3.1085714285714285
     }
   ],
   "audioSettings": {
@@ -99,20 +99,20 @@
     "voice": 1
   },
   "backgroundMusic": "audio/Tech_music_background1.mp3",
-  "voiceCode": "n_hanoi_male_protrainer_education_vc",
+  "voiceCode": "hn_female_ngochuyen_full_48k-fhg",
   "speedRate": 1,
   "visualSettings": {
-    "logo": "logo/logo.png"
+    "logo": "logo/mina.png"
   },
   "contentStats": {
-    "totalWords": 244,
-    "estimatedDuration": 63.9
+    "totalWords": 236,
+    "estimatedDuration": 62.1
   },
-  "socialCaption": "Bạn có bao giờ thắc mắc các vi điều khiển trò chuyện với nhau thế nào không? Giao tiếp UART chính là chìa khóa bí mật đấy! Xem ngay video này để nắm vững nguyên lý hoạt động cực kỳ thú vị chỉ trong vài phút. Nhớ bấm lưu lại…\n\n#DQTECH #UART #ViDieuKhien #DienTu #LapTrinhNhung #HocKyThuat",
+  "socialCaption": "Bạn có tò mò đằng sau những bộ cánh lộng lẫy là ai đứng sức điều phối không? Xem ngay video này để hiểu rõ nghề Merchandiser ngành may mặc cực hot, nắm trọn bí quyết làm việc hiệu quả và thăng tiến nhanh chóng. Nhớ lưu lại video để…\n\n#DQTECH #Merchandiser #NghềMayMặc #HọcMayMặc #ThờiTrang #SựNghiệp",
   "thumbnail": {
-    "title": "UART là gì?",
-    "episodeNumber": 8,
+    "title": "Merchandiser ngành may mặc là gì?",
+    "episodeNumber": 11,
     "character": "questioning3.png",
-    "image": "images/thumbnail/thumbnail.png"
+    "image": ""
   }
 }

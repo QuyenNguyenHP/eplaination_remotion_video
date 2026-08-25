@@ -1,0 +1,17 @@
+.git
+.gitignore
+.env
+.env.*
+!.env.example
+node_modules
+npm-debug.log*
+output
+public/audio/scenes
+public/images/uploads
+public/images/thumbnail
+*.mp4
+*.webm
+*.mov
+Dockerfile*
+docker-compose*.yml
+README.Docker.md
